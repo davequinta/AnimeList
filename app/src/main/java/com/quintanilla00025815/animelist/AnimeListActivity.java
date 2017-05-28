@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.quintanilla00025815.animelist.dummy.DummyContent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,7 +40,6 @@ public class AnimeListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anime_list);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
@@ -89,15 +89,15 @@ public class AnimeListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+            holder.mIdView.setText(mValues.get(position).idAnime);
+            holder.mContentView.setText(mValues.get(position).titulo);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        arguments.putString(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        arguments.putString(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.getTitulo());
                         AnimeDetailFragment fragment = new AnimeDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -106,7 +106,7 @@ public class AnimeListActivity extends AppCompatActivity {
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, AnimeDetailActivity.class);
-                        intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.getIdAnime());
 
                         context.startActivity(intent);
                     }
