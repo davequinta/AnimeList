@@ -26,13 +26,12 @@ public class DummyContent {
 
     private static final int COUNT = 10;
 
-    private List<DummyItem> CreateItems() {
+   static {
         // Add some sample items.
         for (int i = 1; i <= COUNT; i++) {
             addItem(createDummyItem(i));
         }
-        Map<Integer,DummyItem> map = new TreeMap<>(ITEM_MAP);
-        return new ArrayList<>(map.values());
+
     }
 
 
