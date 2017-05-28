@@ -30,8 +30,19 @@ public class AnimeDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Acá lo de compartir
+                /*
                 Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                        .setAction("Action", null).show();*/
+                Intent shareIntent  = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "Descripcion Anime";
+                String shareSub = "Titulo Anime";
+                shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,shareSub);
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT,shareBody);
+                startActivity(Intent.createChooser(shareIntent,"Share using"));
+
+
+
             }
         });
 
