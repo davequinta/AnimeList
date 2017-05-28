@@ -2,30 +2,100 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <ImageView
+    android:orientation="vertical"
+    android:tag="cards main container">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="#ffffff"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true">
 
-        android:src="@drawable/esa"/>
-    <TextView
-        android:id="@+id/id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
 
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:text="hola"/>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+
+
+
+
+       <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:orientation="vertical"
+
+           >
+           <ImageView
+               android:id="@+id/imagee"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:scaleType="centerCrop"
+               android:adjustViewBounds="true"
+               android:src="@drawable/gintama"/>
+
+
+           <TextView
+               android:layout_marginTop="16dp"
+               android:layout_marginLeft="32dp"
+               android:id="@+id/id"
+               android:layout_alignParentEnd="true"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="1"
+               android:textAppearance="?attr/textAppearanceListItem" />
+
+           <TextView
+               android:layout_marginTop="8dp"
+               android:layout_marginLeft="32dp"
+               android:id="@+id/title"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#333333"
+               android:textAppearance="?attr/textAppearanceListItem"
+               android:text="Titulo"/>
+           <TextView
+               android:layout_marginTop="8dp"
+               android:layout_marginLeft="32dp"
+               android:layout_alignParentBottom="true"
+               android:id="@+id/content"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+
+               android:textAppearance="?attr/textAppearanceListItem"
+               android:text="Descripciòn generica inventada por mi para visualizar mejor papu"/>
+           <LinearLayout
+              android:layout_marginTop="8dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:weightSum="1">
+               <Button
+                   android:background="@android:color/transparent"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Ver"
+                   android:layout_weight="0.00" />
+               <Button
+
+                   android:background="@android:color/transparent"
+
+                   android:text="Explorar"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+           </LinearLayout>
+       </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>
