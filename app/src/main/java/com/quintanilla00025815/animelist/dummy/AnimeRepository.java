@@ -13,7 +13,8 @@ public class AnimeRepository {
 
     public AnimeRepository() {
         saveAnime(new Anime(1,"Konosuba",2,"Comedia","Ecchi",12,2,"CTM"));
-
+        saveAnime(new Anime(2,"Konosuba",2,"Comedia","Ecchi",12,2,"CTM"));
+        saveAnime(new Anime(3,"Konosuba",2,"Comedia","Ecchi",12,2,"CTM"));
     }
 /*LELOUCH ESTA VIVO F.César*/
 

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.quintanilla00025815.animelist.dummy.DummyContent;
 
 /**
- * A fragment representing a single Anime detail screen.
+ * A fragment representing a single Item detail screen.
  * This fragment is either contained in a {@link AnimeListActivity}
  * in two-pane mode (on tablets) or a {@link AnimeDetailActivity}
  * on handsets.
@@ -49,7 +49,7 @@ public class AnimeDetailFragment extends Fragment {
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(mItem.titleAnime);
             }
         }
     }
@@ -61,7 +61,7 @@ public class AnimeDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.anime_detail)).setText(mItem.details);
+            ((TextView) rootView.findViewById(R.id.anime_detail)).setText(mItem.descAnime);
         }
 
         return rootView;
