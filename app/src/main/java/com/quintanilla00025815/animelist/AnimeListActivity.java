@@ -12,6 +12,7 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -89,8 +90,10 @@ public class AnimeListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mIdView.setText(mValues.get(position).idAnime);
-            holder.mContentView.setText(mValues.get(position).titleAnime);
+            holder.mIdView.setText("Numero "+mValues.get(position).idAnime);
+            holder.mContentView.setText(mValues.get(position).descAnime);
+            holder.mTitleView.setText(mValues.get(position).titleAnime);
+            holder.mImageView.setImageResource(mValues.get(position).imageAnime);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -106,7 +109,7 @@ public class AnimeListActivity extends AppCompatActivity {
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, AnimeDetailActivity.class);
-                        intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.idAnime);
+                        intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.descAnime);
 
                         context.startActivity(intent);
                     }
@@ -123,6 +126,8 @@ public class AnimeListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
+            public final TextView mTitleView;
+            public final ImageView mImageView;
             public DummyContent.DummyItem mItem;
 
             public ViewHolder(View view) {
@@ -130,6 +135,8 @@ public class AnimeListActivity extends AppCompatActivity {
                 mView = view;
                 mIdView = (TextView) view.findViewById(R.id.id);
                 mContentView = (TextView) view.findViewById(R.id.content);
+                mTitleView =(TextView) view.findViewById(R.id.title);
+                mImageView = (ImageView) view.findViewById(R.id.imagee);
             }
 
             @Override
