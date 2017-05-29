@@ -1,5 +1,7 @@
 package com.quintanilla00025815.animelist.dummy;
 
+import com.quintanilla00025815.animelist.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,11 +29,11 @@ public class DummyContent {
 
     static {
 
-        addItem( new DummyItem(String.valueOf(1), "Gintama" , "Gintoki es cool",2,"URL1"));
-        addItem( new DummyItem(String.valueOf(2), "Fate Zero" , "Gilgamesh",2,"URL2"));
-        addItem( new DummyItem(String.valueOf(3), "Cowboy Bebop" , "Un anime cool",2,"URL3"));
-        addItem( new DummyItem(String.valueOf(4), "Sakura Cards Captors" , "Un anime cool xD",2,"URL4"));
-        addItem( new DummyItem(String.valueOf(5), "Karekano" , "Un anime cool xDDD",2,"URL5"));
+        addItem( new DummyItem(String.valueOf(1), "Gintama" , "Gintoki es cool", R.drawable.gintama,"URL1"));
+        addItem( new DummyItem(String.valueOf(2), "Fate Zero" , "Gilgamesh es cool", R.drawable.fate,"URL2"));
+        addItem( new DummyItem(String.valueOf(3), "Cowboy Bebop" , "Un anime cool", R.drawable.cowboy,"URL3"));
+        addItem( new DummyItem(String.valueOf(4), "Naruto" , "Un anime cool xD", R.drawable.naruto,"URL4"));
+        addItem( new DummyItem(String.valueOf(5), "One Piece" , "Un anime cool xDDD", R.drawable.one,"URL5"));
     }
 
     private static void addItem(DummyItem item) {
