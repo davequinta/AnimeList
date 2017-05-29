@@ -109,7 +109,7 @@ public class AnimeListActivity extends AppCompatActivity {
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, AnimeDetailActivity.class);
-                        intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.descAnime);
+                        intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.idAnime);
 
                         context.startActivity(intent);
                     }
