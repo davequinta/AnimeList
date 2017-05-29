@@ -5,17 +5,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.quintanilla00025815.animelist.adapter.Adapter;
+import com.quintanilla00025815.animelist.adapter.StaggeredGridLayoutAdapter;
 import com.quintanilla00025815.animelist.dummy.DummyContent;
 
 import java.util.List;
@@ -54,9 +62,9 @@ public class AnimeListActivity extends AppCompatActivity {
             }
         });
 
-        View recyclerView = findViewById(R.id.anime_list);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.anime_list);
         assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
+        setupRecyclerView( recyclerView);
 
         if (findViewById(R.id.anime_detail_container) != null) {
             // The detail container view will be present only in the
@@ -67,8 +75,15 @@ public class AnimeListActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.layoutselect, menu);
+        return true;
+    }
+
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
+        recyclerView.setAdapter(new Adapter(this, DummyContent.ITEMS, mTwoPane));
     }
 
     public class SimpleItemRecyclerViewAdapter
@@ -144,5 +159,38 @@ public class AnimeListActivity extends AppCompatActivity {
                 return super.toString() + " '" + mContentView.getText() + "'";
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.linealOP:
+                toLinear();
+                return true;
+            case R.id.otroOP:
+                toStaggered();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void toLinear(){
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.anime_list);
+        assert recyclerView != null;
+        setupRecyclerView( recyclerView);
+        LinearLayoutManager lLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(lLayoutManager);
+        recyclerView.setAdapter(new Adapter(this, DummyContent.ITEMS, mTwoPane));
+    }
+
+    public void toStaggered(){
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.anime_list);
+        assert recyclerView != null;
+        setupRecyclerView( recyclerView);
+        StaggeredGridLayoutManager straggLayoutManager = new StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(straggLayoutManager);
+        recyclerView.setAdapter(new StaggeredGridLayoutAdapter(this, DummyContent.ITEMS));
     }
 }
