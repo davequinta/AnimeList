@@ -53,5 +53,5 @@ public abstract class CustomRecyclerViewAdapter extends RecyclerView.Adapter<Cus
             onItemHolderLongClick(this);
             return true;
         }
-    }
+    }//f
 }
