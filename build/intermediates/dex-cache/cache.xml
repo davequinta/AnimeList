@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\David\Documents\PM\AnimeList\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7d99e1a3c153121f6332d03f1af6a52597733e48">
+        <dex dex="C:\Users\David\Documents\PM\AnimeList\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1f30b8dcf155905efc46650ee6b064801cc1c470\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\David\Documents\PM\AnimeList\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\David\Documents\PM\AnimeList\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_aabffcf3ef2d6d2c2d3625830a5d9393ddd696bb\classes.dex" />
+    </item>
+
+</items>
