@@ -49,7 +49,7 @@ public class AnimeListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anime_list);
 
-        DummyContent.setContext(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
@@ -87,80 +87,7 @@ public class AnimeListActivity extends AppCompatActivity {
         recyclerView.setAdapter(new Adapter(this, DummyContent.ITEMS, mTwoPane));
     }
 
-    public class SimpleItemRecyclerViewAdapter
-            extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
-
-        private final List<DummyContent.DummyItem> mValues;
-
-        public SimpleItemRecyclerViewAdapter(List<DummyContent.DummyItem> items) {
-            mValues = items;
-        }
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.anime_list_content, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mItem = mValues.get(position);
-            holder.mIdView.setText("Numero "+mValues.get(position).idAnime);
-            holder.mContentView.setText(mValues.get(position).descAnime);
-            holder.mTitleView.setText(mValues.get(position).titleAnime);
-            holder.mImageView.setImageResource(mValues.get(position).imageAnime);
-
-            holder.mView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putString(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.idAnime);
-                        AnimeDetailFragment fragment = new AnimeDetailFragment();
-                        fragment.setArguments(arguments);
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.anime_detail_container, fragment)
-                                .commit();
-                    } else {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, AnimeDetailActivity.class);
-                        intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, holder.mItem.idAnime);
-
-                        context.startActivity(intent);
-                    }
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return mValues.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            public final View mView;
-            public final TextView mIdView;
-            public final TextView mContentView;
-            public final TextView mTitleView;
-            public final ImageView mImageView;
-            public DummyContent.DummyItem mItem;
-
-            public ViewHolder(View view) {
-                super(view);
-                mView = view;
-                mIdView = (TextView) view.findViewById(R.id.id);
-                mContentView = (TextView) view.findViewById(R.id.content);
-                mTitleView =(TextView) view.findViewById(R.id.title);
-                mImageView = (ImageView) view.findViewById(R.id.imagee);
-            }
-
-            @Override
-            public String toString() {
-                return super.toString() + " '" + mContentView.getText() + "'";
-            }
-        }
-    }
+    
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

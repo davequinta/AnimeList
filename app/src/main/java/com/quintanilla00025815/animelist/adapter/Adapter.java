@@ -58,6 +58,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
     public void onBindViewHolder(final CustomRecycleViewHolder holder, final int position) {
         final ViewHolder myHolder = (ViewHolder) holder;
         myHolder.poster.setImageResource(series.get(position).imageAnime);
+        myHolder.desc.setText(series.get(position).descAnime);
         myHolder.title.setText(series.get(position).titleAnime);
         myHolder.ver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +91,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
     public class ViewHolder extends CustomRecycleViewHolder {
         private ImageView poster;
         private TextView title;
+        private TextView desc;
         private CardView cardView;
         private Button ver;
         private TextView idView;
@@ -97,6 +99,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
         public ViewHolder(View itemView) {
             super(itemView);
             poster = (ImageView) itemView.findViewById(R.id.imagee);
+            desc = (TextView) itemView.findViewById(R.id.content);
             title = (TextView) itemView.findViewById(R.id.title);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
             ver = (Button) itemView.findViewById(R.id.ver_button);
