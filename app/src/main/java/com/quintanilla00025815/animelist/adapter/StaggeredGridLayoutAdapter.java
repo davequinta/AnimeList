@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.quintanilla00025815.animelist.R;
-import com.quintanilla00025815.animelist.dummy.Anime;
 import com.quintanilla00025815.animelist.dummy.DummyContent.DummyItem;
 
 import java.util.ArrayList;
