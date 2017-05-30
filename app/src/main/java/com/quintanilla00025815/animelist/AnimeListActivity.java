@@ -87,7 +87,7 @@ public class AnimeListActivity extends AppCompatActivity {
         recyclerView.setAdapter(new Adapter(this, DummyContent.ITEMS, mTwoPane));
     }
 
-    
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
