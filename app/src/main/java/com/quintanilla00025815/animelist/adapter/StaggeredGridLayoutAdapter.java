@@ -43,7 +43,7 @@ public class StaggeredGridLayoutAdapter extends CustomRecyclerViewAdapter {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(activity)
-                .inflate(R.layout.anime_list_content, parent, false);
+                .inflate(R.layout.list_row_a, parent, false);
         return new ViewHolder(view);
     }
 
@@ -79,9 +79,9 @@ public class StaggeredGridLayoutAdapter extends CustomRecyclerViewAdapter {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            poster = (ImageView) itemView.findViewById(R.id.imagee);
-            title = (TextView) itemView.findViewById(R.id.title);
-            cardView = (CardView) itemView.findViewById(R.id.card_view);
+            poster = (ImageView) itemView.findViewById(R.id.image_a);
+            title = (TextView) itemView.findViewById(R.id.txt_a);
+            cardView = (CardView) itemView.findViewById(R.id.card1);
         }
     }
 //f

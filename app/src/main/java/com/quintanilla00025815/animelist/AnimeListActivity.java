@@ -186,11 +186,15 @@ public class AnimeListActivity extends AppCompatActivity {
     }
 
     public void toStaggered(){
+
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.anime_list);
+        recyclerView.setMinimumWidth(300);
         assert recyclerView != null;
         setupRecyclerView( recyclerView);
         StaggeredGridLayoutManager straggLayoutManager = new StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(straggLayoutManager);
         recyclerView.setAdapter(new StaggeredGridLayoutAdapter(this, DummyContent.ITEMS));
     }
+    //f
 }

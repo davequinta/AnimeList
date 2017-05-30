@@ -80,5 +80,4 @@ public class Adapter extends CustomRecyclerViewAdapter {
             cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
-//f
 }
