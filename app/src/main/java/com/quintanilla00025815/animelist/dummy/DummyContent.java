@@ -60,7 +60,7 @@ public class DummyContent {
     private static String listCaps(int caps) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < caps; i++) {
-            builder.append("Capitulo ").append(i);
+            builder.append("\nCapitulo ").append(i);
         }
         return builder.toString();
     }

@@ -73,6 +73,7 @@ public class AnimeDetailFragment extends Fragment {
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.anime_detail)).setText(mItem.descAnime);
             ((TextView) rootView.findViewById(R.id.title)).setText(mItem.titleAnime);
+            ((TextView) rootView.findViewById(R.id.link)).setText(mItem.caps);
 
 
 
