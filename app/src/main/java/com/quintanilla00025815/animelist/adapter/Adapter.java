@@ -1,9 +1,11 @@
 package com.quintanilla00025815.animelist.adapter;
 
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,11 +30,11 @@ import java.util.List;
  */
 
 public class Adapter extends CustomRecyclerViewAdapter {
-    private Activity activity;
+    private AppCompatActivity activity;
     private final ArrayList<DummyContent.DummyItem> series;
     private boolean mtwoPane;
 
-    public Adapter(final Activity activity, List<DummyContent.DummyItem> items, boolean twoPane) {
+    public Adapter(final AppCompatActivity activity, List<DummyContent.DummyItem> items, boolean twoPane) {
         this.activity = activity;
         this.series = (ArrayList<DummyContent.DummyItem>) items;
         this.mtwoPane = mtwoPane;
@@ -72,7 +74,8 @@ public class Adapter extends CustomRecyclerViewAdapter {
                     arguments.putString(AnimeDetailFragment.ARG_ITEM_ID, series.get(position).idAnime);
                     AnimeDetailFragment fragment = new AnimeDetailFragment();
                     fragment.setArguments(arguments);
-                    getSupportFragmentManager().beginTransaction()
+
+                    activity.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.anime_detail_container, fragment)
                             .commit();
                 } else {
