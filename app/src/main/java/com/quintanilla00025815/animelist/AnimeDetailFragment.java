@@ -51,6 +51,23 @@ public class AnimeDetailFragment extends Fragment {
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.titleAnime);
             }
+            
+            FloatingActionButton fab = (FloatingActionButton) activity.findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+               /* Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                    Intent shareIntent  = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    String body = "Mira " + mItem.titleAnime +"en " + mItem.url;
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, mItem.titleAnime);
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, mItem.titleAnime);
+                    startActivity(Intent.createChooser(shareIntent,"Share using"));
+
+
+                }
+            });
         }
     }
 
