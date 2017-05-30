@@ -1,9 +1,76 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/anime_detail"
-    style="?android:attr/textAppearanceLarge"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:textIsSelectable="true"
-    tools:context="com.quintanilla00025815.animelist.AnimeDetailFragment" />
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:tag="cards main container">
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="#ffffff"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="32dp"
+                android:id="@+id/id"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="32dp"
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#E2DDD9"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:text="Titulo"/>
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/anime_detail"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="32dp"
+                android:textSize="16sp"
+                android:textIsSelectable="true"
+                android:text="Descripciòn generica inventada por mi para visualizar mejor papu"/>
+                tools:context="com.quintanilla00025815.animelist.AnimeDetailFragment" />
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="32dp"
+                android:textSize="16sp"
+                android:text=" www.stackoverflow.com"
+                android:id="@+id/link"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:autoLink="web">
+
+            </TextView>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+</LinearLayout>

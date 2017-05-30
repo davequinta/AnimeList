@@ -1,15 +1,18 @@
 package com.quintanilla00025815.animelist;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.quintanilla00025815.animelist.dummy.DummyContent;
 
@@ -52,24 +55,10 @@ public class AnimeDetailFragment extends Fragment {
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.titleAnime);
+                //appBarLayout.setBackground(getResources().getDrawable(mItem.imageAnime));
+                appBarLayout.setBackgroundResource(mItem.imageAnime);
+                //appBarLayout.ContextCompat.getDrawable(getActivity().getApplicationContext(), mItem.imageAnime);
             }
-            
-            FloatingActionButton fab = (FloatingActionButton) activity.findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-               /* Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                    Intent shareIntent  = new Intent(Intent.ACTION_SEND);
-                    shareIntent.setType("text/plain");
-                    String body = "Mira " + mItem.titleAnime +"en " + mItem.url;
-                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, mItem.titleAnime);
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, body);
-                    startActivity(Intent.createChooser(shareIntent,"Share using"));
-
-
-                }
-            });
         }
     }
 
@@ -78,9 +67,15 @@ public class AnimeDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.anime_detail, container, false);
 
+        View rootView2 = inflater.inflate(R.layout.activity_anime_detail, container, false);
+
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.anime_detail)).setText(mItem.descAnime);
+            ((TextView) rootView.findViewById(R.id.title)).setText(mItem.titleAnime);
+
+
+
         }
 
         return rootView;
