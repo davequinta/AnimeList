@@ -54,26 +54,6 @@ public class AnimeDetailActivity extends AppCompatActivity {
                     .add(R.id.anime_detail_container, fragment)
                     .commit();
 
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //Acá lo de compartir
-                /*
-                Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                    Intent shareIntent  = new Intent(Intent.ACTION_SEND);
-                    shareIntent.setType("text/plain");
-                    String shareBody = "Descripcion Anime";
-                    String shareSub = "Titulo Anime";
-                    shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareSub);
-                    shareIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
-                    startActivity(Intent.createChooser(shareIntent,"Share using"));
-
-
-
-                }
-            });
         }
     }
 
