@@ -1,5 +1,12 @@
 package com.quintanilla00025815.animelist.dummy;
 
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import com.quintanilla00025815.animelist.R;
 
 import java.util.ArrayList;
@@ -29,11 +36,11 @@ public class DummyContent {
 
     static {
 
-        addItem( new DummyItem(String.valueOf(1), "Gintama" , "Gintoki es cool", R.drawable.gintama,"URL1"));
-        addItem( new DummyItem(String.valueOf(2), "Fate Zero" , "Gilgamesh es cool", R.drawable.fate,"URL2"));
-        addItem( new DummyItem(String.valueOf(3), "Cowboy Bebop" , "Un anime cool", R.drawable.cowboy,"URL3"));
-        addItem( new DummyItem(String.valueOf(4), "Naruto" , "Un anime cool xD", R.drawable.naruto,"URL4"));
-        addItem( new DummyItem(String.valueOf(5), "One Piece" , "Un anime cool xDDD", R.drawable.one,"URL5"));
+        addItem( new DummyItem(String.valueOf(1), "Gintama" , "La historia de Gintama nos sitúa en un Japón sometido por unas criaturas alienígenas conocidas como Amantos. Gracias a estos el país goza de avances tecnológicos desmedidos, pero a la vez la especie humana ha sido desprendida de la autoridad de velar sobre su propio planeta. ", R.drawable.gintama,"URL1"));
+        addItem( new DummyItem(String.valueOf(2), "Fate Zero" , "Cada 10 años se lleva acabo un ritual, una guerra entre 7 magos escogidos por una fuerza omnipotente, cuyo objetivo es invocar el Santo Grial y que este le conceda al vencedor un unico deseo que sera realizado sin importar lo que se pida.", R.drawable.fate,"URL2"));
+        addItem( new DummyItem(String.valueOf(3), "Cowboy Bebop" , "Un grupo muy peculiar de caza-recompensas que viaja a través del sistema solar en la nave Bebop. Balas, emoción y diversión se encuentran en cada una de sus sesiones autoconclusivas, las cuales los llevarán a enfrentar a un gran adversario y viejo amigo de Spike.", R.drawable.cowboy,"URL3"));
+        addItem( new DummyItem(String.valueOf(4), "Naruto" , "Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale.", R.drawable.naruto,"URL4"));
+        addItem( new DummyItem(String.valueOf(5), "One Piece" , "Una historia épica de piratas, donde narra la historia de Monkey D. Luffy quien cuado tenia 7 años, comió accidentalmente una Akuma no mi(Futa del diablo) la cual le dio poderes de goma.", R.drawable.one,"URL678"));
     }
 
     private static void addItem(DummyItem item) {
@@ -46,27 +53,48 @@ public class DummyContent {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItem {
+    public static class DummyItem extends Drawable {
         public final String idAnime;
         public final String titleAnime;
         public final String descAnime;
         public final int imageAnime;
         public final String url;
+        public final int caps;
 
 
-        public DummyItem(String idAnime, String titleAnime, String descAnime, int imageAnime, String url) {
+        public DummyItem(String idAnime, String titleAnime, String descAnime, int imageAnime, String url, int caps) {
             this.idAnime = idAnime;
             this.titleAnime = titleAnime;
             this.descAnime = descAnime;
             this.imageAnime = imageAnime;
             this.url= url;
+            this.capts = caps;
 
         }
-
 
         @Override
         public String toString() {
             return titleAnime;
+        }
+
+        @Override
+        public void draw(@NonNull Canvas canvas) {
+
+        }
+
+        @Override
+        public void setAlpha(@IntRange(from = 0, to = 255) int alpha) {
+
+        }
+
+        @Override
+        public void setColorFilter(@Nullable ColorFilter colorFilter) {
+
+        }
+
+        @Override
+        public int getOpacity() {
+            return 0;
         }
     }
 }
