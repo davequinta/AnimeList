@@ -69,7 +69,7 @@ public class AnimeDetailFragment extends Fragment {
  +                    shareIntent.setType("text/plain");
  +                    String body = "Mira " + mItem.titleAnime +"en " + mItem.url;
  +                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, mItem.titleAnime);
- +                    shareIntent.putExtra(Intent.EXTRA_TEXT, mItem.titleAnime);
+ +                    shareIntent.putExtra(Intent.EXTRA_TEXT, body);
  +                    startActivity(Intent.createChooser(shareIntent,"Share using"));
  +
  +
