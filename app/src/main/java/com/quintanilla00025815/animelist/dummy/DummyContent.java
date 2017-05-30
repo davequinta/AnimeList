@@ -36,17 +36,26 @@ public class DummyContent {
 
     static {
 
-        addItem( new DummyItem(String.valueOf(1), "Gintama" , "La historia de Gintama nos sitúa en un Japón sometido por unas criaturas alienígenas conocidas como Amantos. Gracias a estos el país goza de avances tecnológicos desmedidos, pero a la vez la especie humana ha sido desprendida de la autoridad de velar sobre su propio planeta. ", R.drawable.gintama,"URL1",200));
-        addItem( new DummyItem(String.valueOf(2), "Fate Zero" , "Cada 10 años se lleva acabo un ritual, una guerra entre 7 magos escogidos por una fuerza omnipotente, cuyo objetivo es invocar el Santo Grial y que este le conceda al vencedor un unico deseo que sera realizado sin importar lo que se pida.", R.drawable.fate,"URL2",20));
-        addItem( new DummyItem(String.valueOf(3), "Cowboy Bebop" , "Un grupo muy peculiar de caza-recompensas que viaja a través del sistema solar en la nave Bebop. Balas, emoción y diversión se encuentran en cada una de sus sesiones autoconclusivas, las cuales los llevarán a enfrentar a un gran adversario y viejo amigo de Spike.", R.drawable.cowboy,"URL3",25));
-        addItem( new DummyItem(String.valueOf(4), "Naruto" , "Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale.", R.drawable.naruto,"URL4",12));
-        addItem( new DummyItem(String.valueOf(5), "One Piece" , "Una historia épica de piratas, donde narra la historia de Monkey D. Luffy quien cuado tenia 7 años, comió accidentalmente una Akuma no mi(Futa del diablo) la cual le dio poderes de goma.", R.drawable.one,"URL678",13));
+        addItem( new DummyItem(String.valueOf(1), "Gintama" , "La historia de Gintama nos sitúa en un Japón sometido por unas criaturas alienígenas conocidas como Amantos. Gracias a estos el país goza de avances tecnológicos desmedidos, pero a la vez la especie humana ha sido desprendida de la autoridad de velar sobre su propio planeta. ", R.drawable.gintama,"URL1",listCaps(200)));
+        addItem( new DummyItem(String.valueOf(2), "Fate Zero" , "Cada 10 años se lleva acabo un ritual, una guerra entre 7 magos escogidos por una fuerza omnipotente, cuyo objetivo es invocar el Santo Grial y que este le conceda al vencedor un unico deseo que sera realizado sin importar lo que se pida.", R.drawable.fate,"URL2",listCaps(50)));
+        addItem( new DummyItem(String.valueOf(3), "Cowboy Bebop" , "Un grupo muy peculiar de caza-recompensas que viaja a través del sistema solar en la nave Bebop. Balas, emoción y diversión se encuentran en cada una de sus sesiones autoconclusivas, las cuales los llevarán a enfrentar a un gran adversario y viejo amigo de Spike.", R.drawable.cowboy,"URL3",listCaps(21)));
+        addItem( new DummyItem(String.valueOf(4), "Naruto" , "Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale.", R.drawable.naruto,"URL4",listCaps(12)));
+        addItem( new DummyItem(String.valueOf(5), "One Piece" , "Una historia épica de piratas, donde narra la historia de Monkey D. Luffy quien cuado tenia 7 años, comió accidentalmente una Akuma no mi(Futa del diablo) la cual le dio poderes de goma.", R.drawable.one,"URL678",listCaps(23)));
     }
 
     private static void addItem(DummyItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.idAnime, item);
     }
+    
+    private static String listCaps(int caps) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            builder.append("Capitulo ").append(i);
+        }
+        return builder.toString();
+    }
+    
 
 
 
@@ -59,10 +68,10 @@ public class DummyContent {
         public final String descAnime;
         public final int imageAnime;
         public final String url;
-        public final int caps;
+        public final String caps;
 
 
-        public DummyItem(String idAnime, String titleAnime, String descAnime, int imageAnime, String url, int caps) {
+        public DummyItem(String idAnime, String titleAnime, String descAnime, int imageAnime, String url, String caps) {
             this.idAnime = idAnime;
             this.titleAnime = titleAnime;
             this.descAnime = descAnime;
