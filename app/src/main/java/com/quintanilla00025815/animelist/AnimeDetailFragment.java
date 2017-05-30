@@ -59,6 +59,8 @@ public class AnimeDetailFragment extends Fragment {
                 appBarLayout.setBackgroundResource(mItem.imageAnime);
                 //appBarLayout.ContextCompat.getDrawable(getActivity().getApplicationContext(), mItem.imageAnime);
             }
+            
+            
         }
     }
 
