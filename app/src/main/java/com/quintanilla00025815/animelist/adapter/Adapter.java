@@ -1,6 +1,9 @@
 package com.quintanilla00025815.animelist.adapter;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.quintanilla00025815.animelist.AnimeDetailActivity;
+import com.quintanilla00025815.animelist.AnimeDetailFragment;
 import com.quintanilla00025815.animelist.R;
 import com.quintanilla00025815.animelist.dummy.DummyContent;
 
@@ -25,12 +30,12 @@ import java.util.List;
 public class Adapter extends CustomRecyclerViewAdapter {
     private Activity activity;
     private final ArrayList<DummyContent.DummyItem> series;
-    private boolean twoPane;
+    private boolean mtwoPane;
 
     public Adapter(final Activity activity, List<DummyContent.DummyItem> items, boolean twoPane) {
         this.activity = activity;
         this.series = (ArrayList<DummyContent.DummyItem>) items;
-        this.twoPane = twoPane;
+        this.mtwoPane = mtwoPane;
         setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -59,7 +64,26 @@ public class Adapter extends CustomRecyclerViewAdapter {
             }
 
         });*/
+        myHolder.ver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mtwoPane) {
+                    Bundle arguments = new Bundle();
+                    arguments.putString(AnimeDetailFragment.ARG_ITEM_ID, series.get(position).idAnime);
+                    AnimeDetailFragment fragment = new AnimeDetailFragment();
+                    fragment.setArguments(arguments);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.anime_detail_container, fragment)
+                            .commit();
+                } else {
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, AnimeDetailActivity.class);
+                    intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, series.get(position).idAnime);
 
+                    context.startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override
@@ -71,13 +95,16 @@ public class Adapter extends CustomRecyclerViewAdapter {
         private ImageView poster;
         private TextView title;
         private CardView cardView;
-        //private Button like;
+        private Button ver;
+        private TextView idView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             poster = (ImageView) itemView.findViewById(R.id.imagee);
             title = (TextView) itemView.findViewById(R.id.title);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
+            ver = (Button) itemView.findViewById(R.id.ver_button);
+            idView = (TextView) itemView.findViewById(R.id.id);
         }
     }
 }
