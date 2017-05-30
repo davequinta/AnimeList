@@ -2,16 +2,23 @@ package com.quintanilla00025815.animelist.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.quintanilla00025815.animelist.AnimeDetailActivity;
+import com.quintanilla00025815.animelist.AnimeDetailFragment;
 import com.quintanilla00025815.animelist.R;
 import com.quintanilla00025815.animelist.dummy.DummyContent.DummyItem;
 
@@ -24,18 +31,26 @@ import java.util.Random;
  */
 
 public class StaggeredGridLayoutAdapter extends CustomRecyclerViewAdapter {
-    private Activity activity;
+    private final AppCompatActivity activity;
     private ArrayList<DummyItem> animes;
     private int screenWidth;
+    private boolean mtwoPane;
 
-    public StaggeredGridLayoutAdapter(Activity activity, List<DummyItem> animes) {
+    public StaggeredGridLayoutAdapter(final AppCompatActivity activity, final List<DummyItem> animes, boolean mtwoPane) {
         this.activity = activity;
         this.animes = (ArrayList<DummyItem>) animes;
+        this.mtwoPane = mtwoPane;
         WindowManager wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         screenWidth = size.x;
+        setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(activity,animes.get(position).titleAnime, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
@@ -47,7 +62,7 @@ public class StaggeredGridLayoutAdapter extends CustomRecyclerViewAdapter {
     }
 
     @Override
-    public void onBindViewHolder(CustomRecycleViewHolder holder, int position) {
+    public void onBindViewHolder(CustomRecycleViewHolder holder, final int position) {
         final ViewHolder myHolder = (ViewHolder) holder;
         myHolder.poster.setImageResource(animes.get(position).imageAnime);
         myHolder.title.setText(animes.get(position).titleAnime);
@@ -63,7 +78,27 @@ public class StaggeredGridLayoutAdapter extends CustomRecyclerViewAdapter {
         }
 
         myHolder.cardView.setLayoutParams(new RecyclerView.LayoutParams(screenWidth/2,height));*/
+        myHolder.title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mtwoPane) {
+                    Bundle arguments = new Bundle();
+                    arguments.putString(AnimeDetailFragment.ARG_ITEM_ID, animes.get(position).idAnime);
+                    AnimeDetailFragment fragment = new AnimeDetailFragment();
+                    fragment.setArguments(arguments);
 
+                    activity.getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.anime_detail_container, fragment)
+                            .commit();
+                } else {
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, AnimeDetailActivity.class);
+                    intent.putExtra(AnimeDetailFragment.ARG_ITEM_ID, animes.get(position).idAnime);
+
+                    context.startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override

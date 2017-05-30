@@ -34,7 +34,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
     private final ArrayList<DummyContent.DummyItem> series;
     private boolean mtwoPane;
 
-    public Adapter(final AppCompatActivity activity, List<DummyContent.DummyItem> items, boolean twoPane) {
+    public Adapter(final AppCompatActivity activity, List<DummyContent.DummyItem> items, boolean mtwoPane) {
         this.activity = activity;
         this.series = (ArrayList<DummyContent.DummyItem>) items;
         this.mtwoPane = mtwoPane;
@@ -59,13 +59,6 @@ public class Adapter extends CustomRecyclerViewAdapter {
         final ViewHolder myHolder = (ViewHolder) holder;
         myHolder.poster.setImageResource(series.get(position).imageAnime);
         myHolder.title.setText(series.get(position).titleAnime);
-        /*myHolder.like.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(myHolder.itemView.getContext(),"LIKE "+ series.get(position).titleAnime, Toast.LENGTH_SHORT).show();
-            }
-
-        });*/
         myHolder.ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

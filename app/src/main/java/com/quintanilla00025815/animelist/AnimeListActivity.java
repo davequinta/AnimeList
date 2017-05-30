@@ -49,6 +49,7 @@ public class AnimeListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anime_list);
 
+        DummyContent.setContext(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
@@ -194,7 +195,7 @@ public class AnimeListActivity extends AppCompatActivity {
         setupRecyclerView( recyclerView);
         StaggeredGridLayoutManager straggLayoutManager = new StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(straggLayoutManager);
-        recyclerView.setAdapter(new StaggeredGridLayoutAdapter(this, DummyContent.ITEMS));
+        recyclerView.setAdapter(new StaggeredGridLayoutAdapter(this, DummyContent.ITEMS, mTwoPane));
     }
     //f
 }

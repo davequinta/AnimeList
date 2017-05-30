@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">AnimeList</string>
     <string name="title_anime_detail">Anime Detail</string>
+    <string name="gintama_desc">La historia de Gintama nos sitúa en un Japón sometido por unas criaturas alienígenas conocidas como Amantos. Gracias a estos el país goza de avances tecnológicos desmedidos, pero a la vez la especie humana ha sido desprendida de la autoridad de velar sobre su propio planeta. </string>
+    <string name="fateZero_desc">Cada 10 años se lleva acabo un ritual, una guerra entre 7 magos escogidos por una fuerza omnipotente, cuyo objetivo es invocar el Santo Grial y que este le conceda al vencedor un unico deseo que sera realizado sin importar lo que se pida.</string>
+    <string name="cowboyBebop_desc">Un grupo muy peculiar de caza-recompensas que viaja a través del sistema solar en la nave Bebop. Balas, emoción y diversión se encuentran en cada una de sus sesiones autoconclusivas, las cuales los llevarán a enfrentar a un gran adversario y viejo amigo de Spike.</string>
+    <string name="naturo_desc">Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale.</string>
+    <string name="onePiece_desc">Una historia épica de piratas, donde narra la historia de Monkey D. Luffy quien cuado tenia 7 años, comió accidentalmente una Akuma no mi(Futa del diablo) la cual le dio poderes de goma.</string>
 </resources>
