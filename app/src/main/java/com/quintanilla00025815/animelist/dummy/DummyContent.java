@@ -77,7 +77,7 @@ public class DummyContent {
             this.descAnime = descAnime;
             this.imageAnime = imageAnime;
             this.url= url;
-            this.capts = caps;
+            this.caps = caps;
 
         }
 
