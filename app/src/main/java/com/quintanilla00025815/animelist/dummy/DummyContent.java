@@ -2,6 +2,7 @@ package com.quintanilla00025815.animelist.dummy;
 
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
@@ -103,7 +104,7 @@ public class DummyContent {
 
         @Override
         public int getOpacity() {
-            return 0;
+            return PixelFormat.OPAQUE;
         }
     }
 }
